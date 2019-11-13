@@ -1,0 +1,48 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Login request",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login with credentials.",
+                "description": "Permits an Authorization attempt.",
+                "operationId": "authLogin",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "formData",
+                        "description": "Payload must contian employee id and password.",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string",
+                            "example": {
+                                "employee_id": 1234567,
+                                "password": "Emplyee123"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation."
+                    },
+                    "422": {
+                        "description": "Validation error."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
